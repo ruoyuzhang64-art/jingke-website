@@ -63,14 +63,54 @@
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 0;
   background:
+    linear-gradient(180deg, rgba(10, 26, 58, 0.76) 0%, rgba(10, 26, 58, 0.82) 100%),
     radial-gradient(ellipse 60% 50% at 80% 20%, rgba(30, 111, 255, 0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(59, 158, 255, 0.08) 0%, transparent 70%);
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(59, 158, 255, 0.08) 0%, transparent 70%),
+    url('/industry-bg.png') center / cover no-repeat;
   pointer-events: none;
 }
 
+.section--dark .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* 关于京科 · 淡背景 */
+#about {
+  position: relative;
+  overflow: hidden;
+}
+
+#about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.90) 100%),
+    url('/about-bg.png') center / cover no-repeat;
+  pointer-events: none;
+}
+
+#about .container {
+  position: relative;
+  z-index: 1;
+}
+
+#about .about-card--main {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(8px);
+}
+
+#about .stat-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+}
+
 .section--gradient {
-  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 50%, var(--blue-deep) 100%);
+  background-color: var(--blue-deep);
   position: relative;
   overflow: hidden;
 }
@@ -79,12 +119,52 @@
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(135deg, rgba(13, 43, 94, 0.88) 0%, rgba(26, 74, 138, 0.84) 50%, rgba(10, 26, 58, 0.92) 100%),
+    url('/solution-bg.png') center / cover no-repeat;
+  pointer-events: none;
+}
+
+.section--gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   pointer-events: none;
 }
 
+.section--gradient .container {
+  position: relative;
+  z-index: 1;
+}
+
 .section--contact {
-  background: linear-gradient(180deg, var(--gray-50) 0%, var(--blue-pale) 100%);
+  position: relative;
+  overflow: hidden;
+  background-color: var(--gray-50);
+}
+
+.section--contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(248, 250, 252, 0.94) 0%,
+      rgba(248, 250, 252, 0.96) 55%,
+      rgba(255, 255, 255, 0.97) 100%
+    ),
+    url('/contact-bg.png') center / cover no-repeat;
+  pointer-events: none;
+}
+
+.section--contact .container {
+  position: relative;
+  z-index: 1;
 }
 
 .section-header {
@@ -290,13 +370,35 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue-dark) 40%, #0f3460 100%);
+  background-color: var(--blue-deep);
   overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('/hero-bg.png') center / cover no-repeat;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    160deg,
+    rgba(10, 26, 58, 0.93) 0%,
+    rgba(13, 43, 94, 0.87) 45%,
+    rgba(10, 26, 58, 0.95) 100%
+  );
 }
 
 .hero__bg {
   position: absolute;
   inset: 0;
+  z-index: 2;
   pointer-events: none;
 }
 
@@ -334,7 +436,7 @@
 
 .hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   padding-top: 120px;
   padding-bottom: 80px;
 }
@@ -385,7 +487,7 @@
 
 .hero__subtitle {
   font-size: 17px;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.86);
   line-height: 2;
   max-width: 580px;
   margin: 0 0 40px;
@@ -421,8 +523,8 @@
 
 .hero-matrix {
   position: relative;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 26, 58, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-lg);
   padding: 32px;
   backdrop-filter: blur(16px);
@@ -646,20 +748,21 @@
 }
 
 .industry-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
   padding: 40px 32px;
   position: relative;
   transition: var(--transition);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
 .industry-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.11);
   border-color: rgba(30, 111, 255, 0.4);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
 }
 
 .industry-card__icon {
@@ -767,16 +870,18 @@
 .solution-card {
   display: flex;
   align-items: stretch;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 26, 58, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius);
   overflow: hidden;
   transition: var(--transition);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 .solution-card:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(30, 111, 255, 0.4);
+  background: rgba(10, 26, 58, 0.65);
+  border-color: rgba(30, 111, 255, 0.45);
   transform: translateX(8px);
 }
 
@@ -788,8 +893,8 @@
   font-size: 28px;
   font-weight: 700;
   color: var(--blue-light);
-  background: rgba(30, 111, 255, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 26, 58, 0.72);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .solution-card__body {
@@ -799,14 +904,15 @@
 .solution-card__body h3 {
   font-size: 18px;
   font-weight: 600;
-  color: var(--white);
+  color: #ffffff;
   margin: 0 0 10px;
+  letter-spacing: 0.5px;
 }
 
 .solution-card__body p {
   font-size: 14px;
   line-height: 1.9;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.92);
   margin: 0;
 }
 

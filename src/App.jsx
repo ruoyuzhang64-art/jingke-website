@@ -101,10 +101,12 @@ const ADVANTAGES = [
   {
     org: '赛迪新质生产力发展促进中心',
     desc: '国家级智库资源支撑，提供前沿产业政策研究与战略咨询能力。',
+    logo: '/saidi-logo.png',
   },
   {
     org: '广东省产融协同科技研究院',
     desc: '深耕粤港澳大湾区产融协同创新，搭建政产学研用一体化合作平台。',
+    logo: '/guangdong-research-logo.png',
   },
 ]
 
@@ -335,10 +337,8 @@ function App() {
             <div className="advantage-grid">
               {ADVANTAGES.map((item) => (
                 <article key={item.org} className="advantage-card">
-                  <div className="advantage-card__badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
+                  <div className="advantage-card__logo-wrap">
+                    <img src={item.logo} alt={item.org} className="advantage-card__logo" />
                   </div>
                   <h3>{item.org}</h3>
                   <p>{item.desc}</p>

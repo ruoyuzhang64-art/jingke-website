@@ -3,10 +3,11 @@ import './App.css'
 
 const NAV_ITEMS = [
   { label: '首页', href: '#home' },
-  { label: '关于京科', href: '#about' },
-  { label: '核心业务', href: '#business' },
-  { label: '产业方向', href: '#industries' },
+  { label: '集团概况', href: '#about' },
+  { label: '产业投资', href: '#investment' },
+  { label: '产业运营', href: '#operations' },
   { label: '解决方案', href: '#solutions' },
+  { label: '新闻中心', href: '#news' },
   { label: '联系我们', href: '#contact' },
 ]
 
@@ -31,18 +32,22 @@ const INDUSTRIES = [
 const CORE_BUSINESS = [
   {
     title: '产业链投资',
+    anchor: 'investment',
     desc: '以资本力量撬动新兴产业集群，精准布局高成长性赛道，实现产融深度结合。',
   },
   {
     title: '产业运营',
+    anchor: 'operations',
     desc: '提供全生命周期产业运营管理服务，推动项目落地与价值释放，确保可持续增长。',
   },
   {
     title: '产业升级解决方案',
+    anchor: 'upgrade',
     desc: '为政企客户量身定制内生式产业升级路径，打通从规划到落地的全链条服务。',
   },
   {
     title: '产融协同',
+    anchor: 'finance',
     desc: '整合金融资源与产业资源，构建多元化投融资体系，加速新质生产力培育。',
   },
 ]
@@ -63,12 +68,60 @@ const SOLUTIONS = [
 ]
 
 const HERO_CAPABILITIES = [
-  { label: '国产替代', tag: 'INDUSTRY' },
-  { label: '两新两重', tag: 'POLICY' },
-  { label: '绿色低碳', tag: 'GREEN' },
-  { label: '产业链投资', tag: 'INVEST' },
-  { label: '产融协同', tag: 'FINANCE' },
-  { label: '项目落地', tag: 'DELIVERY' },
+  { label: '产业投资', tag: '投资布局' },
+  { label: '产业运营', tag: '运营管理' },
+  { label: '产融协同', tag: '金融资源' },
+  { label: '项目落地', tag: '区域服务' },
+]
+
+const QUICK_LINKS = [
+  {
+    title: '产业投资',
+    desc: '聚焦战略性新兴产业，布局高成长产业链。',
+    href: '#investment',
+  },
+  {
+    title: '产业运营',
+    desc: '提供园区、项目与产业平台全周期运营服务。',
+    href: '#operations',
+  },
+  {
+    title: '产融协同',
+    desc: '整合资本、产业与专业机构资源，提升项目落地效率。',
+    href: '#finance',
+  },
+  {
+    title: '新质生产力项目',
+    desc: '因地制宜导入示范项目，服务区域产业升级。',
+    href: '#solutions',
+  },
+]
+
+const NEWS_CATEGORIES = [
+  {
+    category: '集团新闻',
+    items: [
+      { date: '2026-06', title: '京科控股国际集团召开产业投资与运营专题工作会议' },
+      { date: '2026-06', title: '集团持续完善新质生产力项目服务与资源协同机制' },
+      { date: '2026-06', title: '京科控股稳步推进政企合作场景下的产业服务体系建设' },
+    ],
+  },
+  {
+    category: '产业动态',
+    items: [
+      { date: '2026-06', title: '战略性新兴产业链协同发展进入提质增效新阶段' },
+      { date: '2026-06', title: '绿色低碳与国产替代领域持续释放产业布局机遇' },
+      { date: '2026-06', title: '产业园区运营加快向专业化、精细化服务能力升级' },
+    ],
+  },
+  {
+    category: '政策解读',
+    items: [
+      { date: '2026-06', title: '新质生产力政策体系为区域产业升级提供重要支撑' },
+      { date: '2026-06', title: '两新两重建设持续带动重点产业链投资与项目导入' },
+      { date: '2026-06', title: '产融协同机制助力科技成果转化和产业化落地实践' },
+    ],
+  },
 ]
 
 const ABOUT_STATS = [
@@ -167,7 +220,7 @@ function App() {
           <div className="container hero__content">
             <div className="hero__layout">
               <div className="hero__main">
-                <p className="hero__tag">深圳 · 产业投资运营集团</p>
+                <p className="hero__tag">京科控股国际集团 · 产业投资运营平台</p>
                 <h1 className="hero__title">
                   <span className="hero__title-line">聚焦新质生产力</span>
                   <span className="hero__title-line">赋能产业升级新格局</span>
@@ -177,10 +230,10 @@ function App() {
                 </p>
                 <div className="hero__actions">
                   <a href="#about" className="btn btn--primary">
-                    了解京科
+                    集团概况
                   </a>
-                  <a href="#contact" className="btn btn--outline">
-                    联系我们
+                  <a href="#business" className="btn btn--outline">
+                    业务入口
                   </a>
                 </div>
                 <div className="hero__trust">
@@ -195,8 +248,8 @@ function App() {
               <div className="hero__matrix">
                 <div className="hero-matrix">
                   <div className="hero-matrix__header">
-                    <span className="hero-matrix__label">CAPABILITY MATRIX</span>
-                    <h2 className="hero-matrix__title">产业能力矩阵</h2>
+                    <span className="hero-matrix__label">PORTAL SERVICE</span>
+                    <h2 className="hero-matrix__title">集团服务入口</h2>
                   </div>
                   <div className="hero-matrix__grid">
                     {HERO_CAPABILITIES.map((item, i) => (
@@ -209,10 +262,26 @@ function App() {
                   </div>
                   <div className="hero-matrix__footer">
                     <span className="hero-matrix__dot" />
-                    全链条产业服务能力
+                    面向政企客户的一站式产业服务
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 快捷入口 */}
+        <section className="portal-quick" aria-label="快捷入口">
+          <div className="container">
+            <div className="quick-panel">
+              {QUICK_LINKS.map((item, i) => (
+                <a key={item.title} href={item.href} className="quick-card">
+                  <span className="quick-card__num">{String(i + 1).padStart(2, '0')}</span>
+                  <h2>{item.title}</h2>
+                  <p>{item.desc}</p>
+                  <span className="quick-card__more">查看详情</span>
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -251,9 +320,9 @@ function App() {
         </section>
 
         {/* 三大产业方向 */}
-        <section id="industries" className="section section--dark">
+        <section id="industries" className="section section--portal-muted">
           <div className="container">
-            <div className="section-header section-header--light">
+            <div className="section-header">
               <span className="section-label">INDUSTRIES</span>
               <h2 className="section-title">三大产业方向</h2>
               <div className="section-line" />
@@ -288,7 +357,7 @@ function App() {
             </div>
             <div className="card-grid card-grid--4">
               {CORE_BUSINESS.map((item) => (
-                <article key={item.title} className="business-card">
+                <article key={item.title} id={item.anchor} className="business-card">
                   <div className="business-card__accent" />
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
@@ -299,9 +368,9 @@ function App() {
         </section>
 
         {/* 政企解决方案 */}
-        <section id="solutions" className="section section--gradient">
+        <section id="solutions" className="section section--portal">
           <div className="container">
-            <div className="section-header section-header--light">
+            <div className="section-header">
               <span className="section-label">SOLUTIONS</span>
               <h2 className="section-title">政企解决方案</h2>
               <div className="section-line" />
@@ -317,6 +386,38 @@ function App() {
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
                   </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 新闻中心 */}
+        <section id="news" className="section section--portal-muted">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-label">NEWS</span>
+              <h2 className="section-title">新闻中心 / 动态资讯</h2>
+              <div className="section-line" />
+              <p className="section-desc">
+                关注集团动态、产业趋势与政策方向，持续服务政企产业升级需求
+              </p>
+            </div>
+            <div className="news-grid">
+              {NEWS_CATEGORIES.map((group) => (
+                <article key={group.category} className="news-card">
+                  <div className="news-card__header">
+                    <h3>{group.category}</h3>
+                    <span>2026-06</span>
+                  </div>
+                  <ul className="news-list">
+                    {group.items.map((item) => (
+                      <li key={item.title} className="news-item">
+                        <time>{item.date}</time>
+                        <a href="#news">{item.title}</a>
+                      </li>
+                    ))}
+                  </ul>
                 </article>
               ))}
             </div>
@@ -363,65 +464,66 @@ function App() {
               <div className="section-line" />
             </div>
             <div className="contact-grid">
-              <div className="contact-info">
-                <div className="contact-item">
-                  <span className="contact-item__label">公司名称</span>
-                  <span className="contact-item__value">京科控股国际集团</span>
+              <div className="contact-card contact-info">
+                <div className="contact-card__header">
+                  <span className="contact-card__label">CONTACT</span>
+                  <h3 className="contact-card__title">联系信息</h3>
                 </div>
-                <div className="contact-item">
-                  <span className="contact-item__label">联系人</span>
-                  <span className="contact-item__value">路总</span>
-                </div>
-                <div className="contact-item">
-                  <span className="contact-item__label">联系电话</span>
-                  <a href="tel:075526903625" className="contact-item__value contact-item__link">
-                    0755-26903625
-                  </a>
-                </div>
-                <div className="contact-item">
-                  <span className="contact-item__label">电子邮箱</span>
-                  <span className="contact-item__value contact-item__value--muted">暂无</span>
-                </div>
-                <div className="contact-item contact-item--address">
-                  <span className="contact-item__label">公司地址</span>
-                  <span className="contact-item__value">
-                    深圳市南山区粤海街道中科纳能大厦A座2楼
-                  </span>
+                <div className="contact-info__list">
+                  <div className="contact-item">
+                    <span className="contact-item__label">公司名称</span>
+                    <span className="contact-item__value">京科控股国际集团</span>
+                  </div>
+                  <div className="contact-item">
+                    <span className="contact-item__label">联系人</span>
+                    <span className="contact-item__value">路总</span>
+                  </div>
+                  <div className="contact-item">
+                    <span className="contact-item__label">联系电话</span>
+                    <a href="tel:075526903625" className="contact-item__value contact-item__link">
+                      0755-26903625
+                    </a>
+                  </div>
+                  <div className="contact-item">
+                    <span className="contact-item__label">电子邮箱</span>
+                    <span className="contact-item__value contact-item__value--muted">暂无</span>
+                  </div>
+                  <div className="contact-item contact-item--address">
+                    <span className="contact-item__label">公司地址</span>
+                    <span className="contact-item__value">
+                      深圳市南山区粤海街道中科纳能大厦A座2楼
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div className="contact-aside">
-                <div className="cooperation-panel">
-                  <div className="cooperation-panel__header">
-                    <span className="cooperation-panel__label">COOPERATION</span>
-                    <h3 className="cooperation-panel__title">合作方向</h3>
-                  </div>
-                  <ul className="cooperation-list">
-                    {COOPERATION_DIRECTIONS.map((item, i) => (
-                      <li key={item.title} className="cooperation-item">
-                        <span className="cooperation-item__num">{String(i + 1).padStart(2, '0')}</span>
-                        <div className="cooperation-item__body">
-                          <h4>{item.title}</h4>
-                          <p>{item.desc}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+              <div className="contact-card cooperation-panel">
+                <div className="contact-card__header">
+                  <span className="contact-card__label">COOPERATION</span>
+                  <h3 className="contact-card__title">合作方向</h3>
                 </div>
+                <ul className="cooperation-list">
+                  {COOPERATION_DIRECTIONS.map((item, i) => (
+                    <li key={item.title} className="cooperation-item">
+                      <span className="cooperation-item__num">{String(i + 1).padStart(2, '0')}</span>
+                      <span className="cooperation-item__title">{item.title}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-                <div className="wechat-card">
-                  <div className="wechat-card__header">
-                    <span className="wechat-card__label">WECHAT</span>
-                    <h3 className="wechat-card__title">微信联系</h3>
-                  </div>
-                  <div className="wechat-card__body">
-                    <img
-                      src="/wechat-qr.png"
-                      alt="京科控股国际集团微信二维码"
-                      className="wechat-card__qr"
-                    />
-                    <p className="wechat-card__hint">扫码添加微信，了解合作详情。</p>
-                  </div>
+              <div className="contact-card wechat-card">
+                <div className="contact-card__header">
+                  <span className="contact-card__label">WECHAT</span>
+                  <h3 className="contact-card__title">微信联系</h3>
+                </div>
+                <div className="wechat-card__body">
+                  <img
+                    src="/wechat-qr.png"
+                    alt="京科控股国际集团微信二维码"
+                    className="wechat-card__qr"
+                  />
+                  <p className="wechat-card__hint">扫码添加微信，了解合作详情。</p>
                 </div>
               </div>
             </div>

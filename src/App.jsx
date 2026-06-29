@@ -99,27 +99,78 @@ const QUICK_LINKS = [
 
 const NEWS_CATEGORIES = [
   {
-    category: '集团新闻',
+    category: '集团要闻',
     items: [
-      { date: '2026-06', title: '京科控股国际集团召开产业投资与运营专题工作会议' },
-      { date: '2026-06', title: '集团持续完善新质生产力项目服务与资源协同机制' },
-      { date: '2026-06', title: '京科控股稳步推进政企合作场景下的产业服务体系建设' },
+      {
+        date: '2026/04/28',
+        title: '五莲财金集团拜访京科国际，推进京石新材项目投资合作',
+        href: 'https://mp.weixin.qq.com/s/49Md296PfySVfcW4QJeU9w',
+      },
+      {
+        date: '2026/04/24',
+        title: '京科国际董事长到访清远高新区，推进零碳产业园区智慧储能项目',
+        href: 'https://mp.weixin.qq.com/s/XJ8VZqgqZnzu6WpbtAIzkQ',
+      },
+      {
+        date: '2026/04/07',
+        title: '赛迪网总裁冯钢一行赴安徽省工信厅座谈交流',
+        href: 'https://mp.weixin.qq.com/s/ZFHRTN9_geN7SATt7MUasQ',
+      },
+      {
+        date: '2026/04/07',
+        title: '京科控股国际集团考察衡阳县，推进新材料、新文旅产业合作',
+        href: 'https://mp.weixin.qq.com/s/3tJ_t9Aby8LQyGWmaQ68TA',
+      },
     ],
   },
   {
-    category: '产业动态',
+    category: '专项行动',
     items: [
-      { date: '2026-06', title: '战略性新兴产业链协同发展进入提质增效新阶段' },
-      { date: '2026-06', title: '绿色低碳与国产替代领域持续释放产业布局机遇' },
-      { date: '2026-06', title: '产业园区运营加快向专业化、精细化服务能力升级' },
+      {
+        date: '2026/01/20',
+        title: '中国经济年报：5%增长守底线，基建熄火，出口独行，锂电池、风电、机器人等新智造难以覆盖基层就业，宏观很硬，微观很苦！',
+        href: 'https://mp.weixin.qq.com/s/nC4hBedVZzjQu09uHo550w',
+      },
+      {
+        date: '2026/01/01',
+        title: '数智融合，质领未来——第二十三届中国食品安全大会暨2025全国食品工业科技进步大会综述',
+        href: 'https://mp.weixin.qq.com/s/mQjC6NEpm554efO686P_tw',
+      },
+      {
+        date: '2025/12/30',
+        title: '谭正平：央国企如何更好参与实施全域土地综合整治项目',
+        href: 'https://mp.weixin.qq.com/s/3wc_wbjzvVi_jYuO8eOB9A',
+      },
+      {
+        date: '2025/12/30',
+        title: '园研究｜“零碳园区”与“循环经济”的关联与协同：双引擎驱动下的园区绿色转型',
+        href: 'https://mp.weixin.qq.com/s/JLLH0ChXItlhbLaKGenhKA',
+      },
     ],
   },
   {
-    category: '政策解读',
+    category: '前沿政策',
     items: [
-      { date: '2026-06', title: '新质生产力政策体系为区域产业升级提供重要支撑' },
-      { date: '2026-06', title: '两新两重建设持续带动重点产业链投资与项目导入' },
-      { date: '2026-06', title: '产融协同机制助力科技成果转化和产业化落地实践' },
+      {
+        date: '2026/05/22',
+        title: '《关于有序推动多用户绿电直连发展有关事项的通知》一图读懂及原文与专家解读',
+        href: 'https://mp.weixin.qq.com/s/-c_V6bTFz0FqCoK2WkCRNw',
+      },
+      {
+        date: '2026/05/22',
+        title: '原文收录｜重磅！国家发改委、国家能源局发布《关于有序推动多用户绿电直连发展有关事项的通知》',
+        href: 'https://mp.weixin.qq.com/s/5XnyqRutUUvtdCRz8I_XWA',
+      },
+      {
+        date: '2026/05/22',
+        title: '国家能源局有关负责同志就《关于有序推动多用户绿电直连发展有关事项的通知》答记者问',
+        href: 'https://mp.weixin.qq.com/s/OFameB5HafR6gAnIh_dpUA',
+      },
+      {
+        date: '2026/05/22',
+        title: '2026全域电动化产业生态我院与新疆塔城地区深度合作 全力推进全域电动化产业落地大会 新闻发布会在京召开',
+        href: 'https://mp.weixin.qq.com/s/Vx8_sn-xbop7NVp-uDEk8g',
+      },
     ],
   },
 ]
@@ -408,13 +459,19 @@ function App() {
                 <article key={group.category} className="news-card">
                   <div className="news-card__header">
                     <h3>{group.category}</h3>
-                    <span>2026-06</span>
                   </div>
                   <ul className="news-list">
                     {group.items.map((item) => (
                       <li key={item.title} className="news-item">
                         <time>{item.date}</time>
-                        <a href="#news">{item.title}</a>
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={item.title}
+                        >
+                          {item.title}
+                        </a>
                       </li>
                     ))}
                   </ul>
